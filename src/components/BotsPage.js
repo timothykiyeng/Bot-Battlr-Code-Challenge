@@ -1,4 +1,4 @@
-
+import React, { useState, useEffect } from "react";
 
 import React from "react";
 import YourBotArmy from "./YourBotArmy";
@@ -18,7 +18,7 @@ function BotsPage() {
   return (
     <div>
       <YourBotArmy />
-      <BotCollection />
+      <BotCollection setBotData={setBotData}/>
     </div>
   )
 }
