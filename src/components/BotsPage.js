@@ -17,7 +17,7 @@ function BotsPage() {
 
   return (
     <div>
-      <YourBotArmy />
+      <YourBotArmy botArmy={botArmy} setBotArmy={setBotArmy} setBotData={setBotData}/>
       <BotCollection botArmy={botArmy} setBotArmy={setBotArmy} bots={botData} setBotData={setBotData} />
     </div>
   );
