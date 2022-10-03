@@ -10,39 +10,29 @@ const botTypeClasses = {
 };
 
 function BotCard({ bot, botArmy, setBotArmy, setBotData }) {
-
-
   function handleDelete() {
     fetch(`http://localhost:8002/bots/${bot.id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then(() => {
-        setBotData((bots) => bots.filter((botArm) => botArm.id !== bot.id))
-        alert('Bot deleted')
-      }
-      );
+        setBotData((bots) => bots.filter((botArm) => botArm.id !== bot.id));
+        alert("Bot Deleted!");
+      });
   }
 
   function handleClick() {
     if (botArmy.find((botArm) => botArm.id === bot.id)) {
       setBotArmy((army) => army.filter((botArm) => botArm.id !== bot.id));
     } else {
-      //setActiveBot(bot)
       setBotArmy((army) => [...army, bot]);
-
     }
   }
 
-
   return (
     <div className="ui column">
-      <div
-        className="ui card"
-        key={bot.id}
-        
-      >
-        <div className="image" onClick={handleClick}>
+      <div className="ui card" key={bot.id} onClick={handleClick}>
+        <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
         </div>
         <div className="content">
@@ -70,10 +60,7 @@ function BotCard({ bot, botArmy, setBotArmy, setBotData }) {
           </span>
           <span>
             <div className="ui center aligned segment basic">
-              <button
-                className="ui mini red button"
-                onClick={handleDelete}
-              >
+              <button className="ui mini red button" onClick={handleDelete}>
                 x
               </button>
             </div>
