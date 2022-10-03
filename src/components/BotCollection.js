@@ -13,7 +13,7 @@ function BotCollection({bots, setBotData}) {
         {bots.map((bot) => (
           <BotCard key={bot.id} bot={bot} setBotData={setBotData}/>
 
-
+        ))}
       </div>
     </div>
   );
