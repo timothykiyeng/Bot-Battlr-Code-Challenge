@@ -9,15 +9,27 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot }) {
+function BotCard({ bot, botArmy, setBotArmy }) {
+
+  function handleClick() {
+    if (botArmy.find((botArm) => botArm.id === bot.id)) {
+      setBotArmy((army) => army.filter((botArm) => botArm.id !== bot.id));
+    } else {
+      //setActiveBot(bot)
+      setBotArmy((army) => [...army, bot]);
+
+    }
+  }
+
+
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        
       >
-        <div className="image">
+        <div className="image" onClick={handleClick}>
           <img alt="oh no!" src={bot.avatar_url} />
         </div>
         <div className="content">
