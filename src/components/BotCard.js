@@ -9,7 +9,20 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot, botArmy, setBotArmy }) {
+function BotCard({ bot, botArmy, setBotArmy, setBotData }) {
+
+
+  function handleDelete() {
+    fetch(`http://localhost:8002/bots/${bot.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setBotData((bots) => bots.filter((botArm) => botArm.id !== bot.id))
+        alert('Bot deleted')
+      }
+      );
+  }
 
   function handleClick() {
     if (botArmy.find((botArm) => botArm.id === bot.id)) {
