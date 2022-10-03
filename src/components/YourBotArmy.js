@@ -1,7 +1,7 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function YourBotArmy(setBotArmy, botArmy) {
+function YourBotArmy({setBotArmy, botArmy}) {
   //your bot army code here...
 
   return (

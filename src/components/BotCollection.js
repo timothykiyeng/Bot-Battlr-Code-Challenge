@@ -7,7 +7,7 @@ function BotCollection({bots, botArmy, setBotArmy, setBotData}) {
     <div className="ui four column grid">
       <div className="row">
         {/*...and here..*/}
-        Collection of all bots
+        {/* Collection of all bots */}
 
 
         {bots.map((bot) => (
